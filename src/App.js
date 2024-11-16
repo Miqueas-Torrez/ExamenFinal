@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import ReservaForm from './components/ReservaForm';
+import ReservaList from './components/ReservaList';
 
 function App() {
+  const [reservas, setReservas] = useState([]);
+
+  const updateReservasList = (newReserva) => {
+    setReservas([...reservas, newReserva]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Gestión de Reservas de Hotel</h1>
+      
+      {}
+      <ReservaForm updateReservasList={updateReservasList} />
+      
+      {}
+      <ReservaList reservas={reservas} setReservas={setReservas} />
     </div>
   );
 }
